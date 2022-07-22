@@ -1,0 +1,341 @@
+/* ESTAS SON LAS PALETAS DE COLORES CON LAS QUE VOY A TRABAJAR*/
+
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --amarillo: #ffc107;
+    --secundario: #0097A7;
+    --gris: #959595;
+    --grisClaro: #DFE9F3;
+    /*Cuando quiero agregar un color a un lugar en especifico, tengo que colocar 
+    --> color: var(--);*/
+}
+
+/*CODIGOS GLOBALES*/
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    /*ESTO ES EL MODELO DE CAJA*/
+    scroll-snap-type: y mandatory;
+}
+
+/*SCROLL SNAP*/
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    /*Esto le da el modelo de caja que desea. Se aplica a todos los elementos.*/
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+    /*Este codigo sirve para degradar el color de fondo*/
+}
+
+.contenedor {
+    width: 120rem;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+
+    /* otra forma de darle valor a los margenes de la nav. principal es colocandolos en en una sola linea en formato reloj 
+    ej: 
+    --> margin: 0 auto 0 auto; ó mas simpple --> margin: 0 auto; */
+}
+
+.boton {
+    background-color: var(--secundario);
+    /*color de fondo*/
+    color: var(--blanco);
+    /*color de letra*/
+    padding: 1rem 3rem;
+    /*padding es el espacio entre lados del boton*/
+    margin-top: 3rem;
+    font-size: 2rem;
+    text-decoration: none;
+    /*desase el subrrayado*/
+    text-transform: uppercase;
+    /*transforma el texto en mayuscula*/
+    font-weight: bold;
+    /*letras en negritas*/
+    border-radius: .5rem; /*redondeado de un angulo*/
+    width: 10rem;
+    /*alarga los anchos*/
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton.hover {
+    cursor: pointer;
+    /*COLOCAR CURSOR SOBRE CUALQUIER ELEMENTO*/
+}
+
+.sombra {
+    -webkit-box-shadow: 5px 10px 50px 12px rgba(94, 80, 94, 1);
+    -moz-box-shadow: 5px 10px 50px 12px rgba(94, 80, 94, 1);
+    box-shadow: 5px 10px 50px 12px rgba(94, 80, 94, 1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+
+/*TIPOGRAFIA*/
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+/* PARA RECORDAR:  1 rem = 10 px*/
+
+/*TUTULOS*/
+.titulo span {
+    font-size: 2rem;
+}
+
+/*UTILIDADES*/
+
+.w-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .w-100 {
+        width: auto;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: end;
+}
+
+/*LA NAVEGACION PRINCIPAL*/
+.nav-bg {
+    background-color: var(--secundario);
+}
+
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+        /*sirve para alinear elementos horizontalmente*/
+    }
+}
+
+.navegacion-principal a {
+    display: block;
+    color: var(--blanco);
+    text-decoration: none;
+    /* inhabilita el subrayado automatico*/
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+    /* HOVER es una pseudo clase; habilita el cambio de color en el cliqueo*/
+    background-color: var(--amarillo);
+    color: var(--oscuro);
+}
+
+/*HERO, CONTACTO Y UBICACION*/
+.hero {
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    /*este codigo sirve para no repetir la imagen indefinidamente, de lado a lado */
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+    position: absolute;
+    background-color: rgba(0, 0, 0, .7);
+    /* codigo anterior, para transparentar la imagen */
+    background-color: rgb(0 0 0 / 70%);
+    /*codigo actual para transparentar la imagen */
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    /*Se coloca todo el contenido indicado de izquierda a derecha */
+    flex-direction: column;
+    /*Se coloca todo el contendio indicado de arriba hacia abajo*/
+    align-items: center;
+    justify-content: center;
+
+    /*Los cuatro codigos de arriba permiten alinear tanto vertical como horizontalmente todos los proyectos que quiera */
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.contenido-hero.ubicacion {
+    display: flex;
+    align-items: flex-end;
+}
+
+/*SERVICIOS*/
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        /*CSS GRID PERMITE DEFINIR EL TAMAÑO Y UBICACION DE LOS ELEMENTOS DE MI SITIO WEB, EL CONTENIDO SE AGRUPA DENTRO DE UN AREA DEFINIDA*/
+        grid-template-columns: repeat(3, 1fr);
+        /*REPETIR 3 VECES UNA FRACCION*/
+    }
+}
+
+.servicio {
+    display: flex;
+    /*Se coloca todo el contenido indicado de izquierda a derecha */
+    flex-direction: column;
+    /*Se coloca todo el contendio indicado de arriba hacia abajo*/
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal;
+}
+
+
+.servicio p {
+    line-height: 2;
+    /*alinea el parrafo dandole mayor espacio*/
+    text-align: center;
+}
+
+.servicio .iconos {
+    height: 15rem;
+    /*margenes*/
+    width: 15rem;
+    /*margenes*/
+    background-color: var(--amarillo);
+    /*color de fondo*/
+    border-radius: 50%;
+    /*lo vuelve circular*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+/*SECCION DE CONTACTO*/
+
+.formulario {
+    background-color: var(--gris);
+    width: min(80rem, 100%);
+    /* 80rem aumenta el ancho del formulario - UTILIZA EL VALOR MAS PEQUEÑO*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    /*TAMAÑO DE LETRAS (TITULO)*/
+    text-transform: uppercase;
+    /*MAYUSCULAS*/
+    font-weight: 700;
+    /*LETRAS NEGRITAS*/
+    margin-bottom: 2rem;
+    /*SEPARACION DE TEXTO DEL PRIMER INPUT (PRIMER RENGLON HACIA ABAJO)*/
+    color: var(--amarillo);
+}
+
+@media (min-width: 768px) {
+    .contenedor-campos {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        /*es lo mismo que colocar repeat 2, 1fr; - define la areas de mis columnas*/
+        column-gap: 1rem;
+    }
+}
+
+.campo:nth-child(3) {
+    grid-column: 1 / 3;
+}
+
+.campo:nth-child(4) {
+    grid-column: 1/3;
+}
+
+.campo {
+    margin-bottom: 1rem;
+    /*SEPARACION DE TEXTO HACIA ABAJO*/
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.campo textarea {
+    height: 8rem;
+    width: 53rem;
+    border-radius: 2rem;
+}
+
+.input-text {
+    width: 100%;
+    /*TOMA TODO EL ESPACIO DISPONIBLE*/
+    border: none;
+    /*QUITA LOS BORDES*/
+    padding: 1rem;
+    /*ESPACIOS*/
+    border-radius: 2rem;
+    /*BORDES REDONDEADOS*/
+}
+
+.footer {
+    text-align: center;
+}
